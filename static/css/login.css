@@ -1,0 +1,170 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+html {
+  background-color: #eeeeee;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.fa {
+  background: white;
+  color: #1b1b1b;
+  padding: 1px;
+  font-size: 1.6em;
+  width: 3%;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+  margin-right: 5%;
+  vertical-align: middle;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  background: #ffffff;
+  position: absolute;
+  top: 12%;
+  padding: 30px;
+  width: 90%;
+  max-width: 450px;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+#logo {
+  position: relative;
+  width: 48px;
+  height: 48px;
+}
+
+.cred {
+  position: relative;
+}
+
+button[type=submit] {
+  background-color: #56baed;
+  border: none;
+  color: white;
+  padding: 15px 60px;
+  font-size: 0.8em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: bold;
+  box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+  border-radius: 5px 5px 5px 5px;
+  margin: 5px 20px 40px 20px;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+}
+
+button[type="submit"]:hover {
+  cursor: pointer;
+  background-color: #008dd6;
+}
+
+input[type=text], input[type=password] {
+  background-color: #f3f3f3;
+  border: none;
+  color: #282828;
+  padding: 15px 32px;
+  text-align: left;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 60%;
+  border: 2px solid #f3f3f3;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.formfooter {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #2fa6f2;
+}
+
+.popup {
+  visibility: hidden;
+  font-weight: bold;
+  min-width: 250px;
+  margin-left: -125px;
+  text-align: center;
+  border-radius: 15px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+}
+
+.popup.show {
+  background-color: #ed2727;
+  color: white;
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}

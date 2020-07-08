@@ -1,0 +1,27 @@
+{%extends 'base.html' %}
+{%block body%}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/post.css')}}">
+<div id="content">
+  <div class="container">
+    <div class="post-container">
+      <div class="post">
+        {% set fname = 'img/post/'+post.image %}
+        <div class="post-author">
+          <img src="{{ url_for('static',filename=fname)}}">
+          <span style="text-transform: capitalize;font-size: 1.4em">{{post.author}}</span>
+        </div>
+        <p class="post-date" name="dated" id="{{post.date}}"></p>
+        <h3 class="post-title">{{post.title}}</h3>
+        <div class="post-content">
+          <pre>{{post.content}}</pre>
+        </div>
+      </div>
+    </div>
+    <form class="about" action="/delete/{{post.id}}" method="post">
+      <label>Are you Sure ?</label>
+      <br><br><br>
+      <button type="submit" id="check">Delete</button>
+    </form>
+  </div>
+</div>
+{%endblock%}

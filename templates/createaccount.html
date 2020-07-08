@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/login.css')}}">
+  </head>
+  <body>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for msg in messages %}
+          <div class="popup">{{msg}}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <div class="content">
+      <div class="container">
+        <div class="logo">
+          <a href="/"><img id="logo" src="{{ url_for('static',filename='img/logo.png')}}"></a>
+        </div>
+        <br>
+        <h3 style="color: #333;">Welcome</h3>
+        <br>
+        <div class="cred">
+          <form class="signin" action="/createaccount" method="post">
+            <i class="fa fa-user"></i>
+            <input required type="text" name="username" value="" placeholder="Set username">
+            <br><br>
+            <i class="fa fa-envelope"></i>
+            <input required type="text" name="email" value="" placeholder="Email">
+            <br><br>
+            <i class="fa fa-key"></i>
+            <input required type="password" name="password" value="" placeholder="Password">
+            <br><br>
+            <button type="submit" name="submit">Sign up</button>
+          </form>
+        </div>
+        <div class="formfooter">
+          <a>Already have an account ? </a>
+          <a href="/login">Login</a>
+        </div>
+      </div>
+    </div>
+    <script>
+      const addDelay = () => {
+        return new Promise(resolve => {
+          setTimeout(() => {
+            resolve('3 seconds');
+          }, 3000);
+        });
+      }
+
+      async function popup() {
+        var x = document.getElementsByClassName('popup')
+        for (var i = 0; i < x.length; i++) {
+          x[i].className = "popup show";
+          const result = await addDelay ();
+          x[i].className = "popup";
+        }
+      }
+      popup()
+    </script>
+  </body>
+</html>

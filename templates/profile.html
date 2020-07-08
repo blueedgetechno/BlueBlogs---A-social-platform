@@ -1,0 +1,76 @@
+{%extends 'base.html' %}
+{%block body%}
+<link rel="stylesheet" href="{{ url_for('static',filename='css/profile.css')}}">
+<div id="content">
+  <div class="container">
+    <div class="about">
+      <div class="user">
+        {% set fname = 'img/profile/'+user.prof %}
+        <img src="{{ url_for('static',filename=fname)}}">
+        <br><br>
+        <div class="details">
+          <span style="text-transform: capitalize;">{{user.name}}</span>
+          {% if edit %}
+            <a href="/deleteaccount" class="icons fa fa-trash" title="Delete account"></a>
+            <a href="/logout" class="icons fa fa-sign-out" title="logout"></a>
+            <a href="/changepassword" class="icons fa fa-key" title="change password"></a>
+            <a href="/editprofile" class="icons fa fa-pencil" title="edit profile"></a>
+            <a href="/post" class="icons fa fa-plus" title="New Post"></a>
+          {% endif %}
+          <div class="intro" style="width: 500px;">
+            <p>{{user.about}}</p>
+          </div>
+          <div class="links">
+            <a href="https://github.com/{{user.github}}" target="_blank">github</a>
+            <a href="https://codeforces.com/profile/{{user.code}}" target="_blank">codeforces</a>
+          </div>
+        </div>
+      </div>
+      <hr>
+      {% set len = posts|length%}
+      {% if len > 0 %}
+        <h2>Recent Posts</h2>
+      {% else %}
+        <br><br><br>
+        <h2>No Post <p class="fa fa-frown-o"></p> </h2>
+      {% endif %}
+      {% for post in posts %}
+      <div hidden class="post-container">
+        <div class="post" style="padding:20px">
+          <div class="post-author" style="float:left;margin:10px;margin-left:-15px;">
+            <span>{{post.author}}</span>
+          </div>
+          {% if edit %}
+            <a href="/delete/{{post.id}}" type="submit" style="float:right;color:red;" class="icons fa fa-trash" ></a>
+            <a href="/edit/{{post.id}}" type="submit" style="float:right;color:#2700ff;" class="icons fa fa-pencil" ></a>
+          {% endif %}
+          <p class="post-date" name="dated" id="{{post.date}}"></p>
+          <h3 class="post-title" style="text-align: left">{{post.title}}</h3>
+        </div>
+      </div>
+      {% endfor %}
+
+      <button type="button" id="more" onclick="loadmore()">Load more</button>
+
+      <script type="text/javascript">
+        var l = {{len}}
+        var m = 0
+        var posts = document.getElementsByClassName('post-container')
+        function loadmore(){
+          m += Math.min(l-m,3)
+          for(var i=0;i<m;i++){
+            posts[i].hidden = false
+          }
+          if(m==l){
+            document.getElementById("more").hidden = true;
+          }
+        }
+        loadmore()
+      </script>
+      <br>
+      </div>
+    </div>
+    </div>
+  </div>
+
+{%endblock%}
