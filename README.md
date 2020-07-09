@@ -16,6 +16,6 @@
 <img src="screenshots/profile.png"><br>
 <h2>
   Go ahead and 
-   <a href="https://blueblogs.herokuapp.com/createaccount"> Sign Up </a> 
+   <a href="https://blueblogs.herokuapp.com/createaccount" target="_blank"> Sign Up </a> 
    ( you don't have to provide a real email address ) 
 </h2>
