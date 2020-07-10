@@ -1,65 +1,132 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/login.css')}}">
-  </head>
-  <body>
-    {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        {% for msg in messages %}
-          <div class="popup">{{msg}}</div>
-        {% endfor %}
-      {% endif %}
-    {% endwith %}
-    <div class="content">
-      <div class="container">
-        <div class="logo">
-          <a href="/"><img id="logo" src="{{ url_for('static',filename='img/logo.png')}}"></a>
-        </div>
-        <br>
-        <h3 style="color: #333;">Welcome</h3>
-        <br>
-        <div class="cred">
-          <form class="signin" action="/createaccount" method="post">
-            <i class="fa fa-user"></i>
-            <input required type="text" name="username" value="" placeholder="Set username">
-            <br><br>
-            <i class="fa fa-envelope"></i>
-            <input required type="text" name="email" value="" placeholder="Email">
-            <br><br>
-            <i class="fa fa-key"></i>
-            <input required type="password" name="password" value="" placeholder="Password">
-            <br><br>
-            <button type="submit" name="submit">Sign up</button>
-          </form>
-        </div>
-        <div class="formfooter">
-          <a>Already have an account ? </a>
-          <a href="/login">Login</a>
-        </div>
+
+<head>
+  <meta charset="utf-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/login.css')}}">
+</head>
+
+<body>
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  {% for msg in messages %}
+  <div class="popup">{{msg}}</div>
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+  <div class="content">
+    <div class="container">
+      <div class="logo">
+        <a href="/"><img id="logo" src="{{ url_for('static',filename='img/logo.png')}}"></a>
+      </div>
+      <br>
+      <h3 style="color: #333;">Welcome</h3>
+      <br>
+      <div class="cred">
+        <form class="signin" action="/createaccount" method="post">
+          <i class="fa fa-user"></i>
+          <input required type="text" name="username" value="" placeholder="Set username">
+          <br><br>
+          <i class="fa fa-envelope"></i>
+          <input required type="text" name="email" value="" placeholder="Email">
+          <br><br>
+          <i class="fa fa-key"></i>
+          <input required type="password" name="password" oninput="ind()" value="" placeholder="Password">
+          <i id="showpass" class="fa fa-eye" onclick="showpass()"></i>
+          <div id="indicator"></div>
+          <script type="text/javascript">
+            var passw = document.getElementsByName('password')[0]
+            var idc = document.getElementById('indicator')
+            var eye = document.getElementById('showpass')
+
+            function strength(s) {
+              if (s.length == 0) {
+                return 0
+              } else if (s.length < 8) {
+                return 1
+              }
+              var dgt = false;
+              var lw = false;
+              var up = false;
+              var special = false;
+              for (var i = 0; i < s.length; i++) {
+                var j = s.charCodeAt(i);
+                if (j > 47 && j < 58) {
+                  dgt = true
+                } else if (j > 64 && j < 91) {
+                  up = true
+                } else if (j > 96 && j < 123) {
+                  lw = true
+                } else {
+                  special = true
+                }
+              }
+              if (dgt && lw && up && special) {
+                return 3
+              } else {
+                return 2
+              }
+
+            }
+
+            function ind() {
+              var i = strength(passw.value)
+              if (i == 3) {
+                idc.style.width = '74%';
+                idc.style.backgroundColor = "#09bb5a";
+              } else if (i == 2) {
+                idc.style.width = '40%';
+                idc.style.backgroundColor = "#c9cd08";
+              } else if (i == 1) {
+                idc.style.width = '15%';
+                idc.style.backgroundColor = "#ee1306";
+              } else {
+                idc.style.width = '0%';
+                idc.style.backgroundColor = "#ffffff";
+              }
+            }
+
+            function showpass() {
+              eye.classList.toggle('fa-eye');
+              eye.classList.toggle('fa-eye-slash');
+              if(passw.type=="password"){
+                passw.type = "text";
+              }else{
+                passw.type = "password";
+              }
+            }
+          </script>
+          <br><br>
+          <button type="submit" name="submit">Sign up</button>
+        </form>
+      </div>
+      <div class="formfooter">
+        <a>Already have an account ? </a>
+        <a href="/login">Login</a>
       </div>
     </div>
-    <script>
-      const addDelay = () => {
-        return new Promise(resolve => {
-          setTimeout(() => {
-            resolve('3 seconds');
-          }, 3000);
-        });
-      }
+  </div>
+  <script>
+    const addDelay = () => {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve('3 seconds');
+        }, 3000);
+      });
+    }
 
-      async function popup() {
-        var x = document.getElementsByClassName('popup')
-        for (var i = 0; i < x.length; i++) {
-          x[i].className = "popup show";
-          const result = await addDelay ();
-          x[i].className = "popup";
-        }
+    async function popup() {
+      var x = document.getElementsByClassName('popup')
+      for (var i = 0; i < x.length; i++) {
+        x[i].className = "popup show";
+        const result = await addDelay();
+        x[i].className = "popup";
       }
-      popup()
-    </script>
-  </body>
+    }
+    popup()
+  </script>
+</body>
+
 </html>

@@ -85,6 +85,7 @@ input[type=text], input[type=password] {
   width: 60%;
   border: 2px solid #f3f3f3;
   border-radius: 5px 5px 5px 5px;
+  outline: none;
 }
 
 .formfooter {
@@ -97,6 +98,28 @@ a {
   text-decoration: none;
   font-weight: 600;
   color: #2fa6f2;
+}
+
+#indicator {
+  position: absolute;
+  left: 17.35%;
+  width: 0%;
+  padding: 2px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  transition: 0.5s;
+}
+
+#showpass {
+  float: right;
+  position: absolute;
+  top: 76%;
+  font-size: 1.2em;
+  transition: 0.3s;
+}
+
+#showpass:hover {
+  cursor: pointer;
 }
 
 .popup {
