@@ -526,7 +526,8 @@ def upload():
             db.session.add(newgame)
             db.session.commit()
             return redirect('/play')
-        except(Exception):
+        except Exception as error:
+            print(error)
             return redirect('/error')
     else:
         return render_template('upload.html')

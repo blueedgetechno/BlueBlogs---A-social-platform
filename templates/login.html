@@ -29,6 +29,21 @@
             <br><br>
             <i class="fa fa-key"></i>
             <input required type="password" name="password" value="" placeholder="Password">
+            <i id="showpass" class="fa fa-eye" onclick="showpass()"></i>
+            <script type="text/javascript">
+              var passw = document.getElementsByName('password')[0]
+              var eye = document.getElementById('showpass')
+
+              function showpass() {
+                eye.classList.toggle('fa-eye');
+                eye.classList.toggle('fa-eye-slash');
+                if(passw.type=="password"){
+                  passw.type = "text";
+                }else{
+                  passw.type = "password";
+                }
+              }
+            </script>
             <br><br><br>
             <button type="submit" name="submit">Login</button>
           </form>

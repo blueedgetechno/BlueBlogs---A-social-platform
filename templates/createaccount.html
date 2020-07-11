@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Login</title>
+  <title>Create Account</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="{{ url_for('static',filename='css/login.css')}}">
 </head>
@@ -35,7 +35,8 @@
           <i class="fa fa-key"></i>
           <input required type="password" name="password" oninput="ind()" value="" placeholder="Password">
           <i id="showpass" class="fa fa-eye" onclick="showpass()"></i>
-          <div id="indicator"></div>
+          <div id="indicator">
+          </div>
           <script type="text/javascript">
             var passw = document.getElementsByName('password')[0]
             var idc = document.getElementById('indicator')
