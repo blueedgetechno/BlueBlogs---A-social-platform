@@ -1,11 +1,11 @@
 <h1>BlueBlogs - A social platform for nerds</h1><br>
 <p>A social blog 💻 platform for nerds 🤓 📕 <a href="https://blueblogs.herokuapp.com" target="_blank">Visit website</a></p><br>
-<ol> <h3><b>What will you get ...</b></h3>
+<ul> <h3><b>What will you get ...</b></h3>
  <li> Customizable Blogs</li>
  <li> A large , XD , community</li>
  <li> Dark mode ( cause we use to like it )
  <li> Casual retro games </li>
-</ol>
+</ul>
 <h2>Create Blogs</h2><br>
 <img src="screenshots/main.png">
 <br>
