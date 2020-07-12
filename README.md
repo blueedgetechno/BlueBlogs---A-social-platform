@@ -9,13 +9,16 @@
 <h2>Create Blogs</h2><br>
 <img src="screenshots/main.png">
 <br>
+<h2>In Dark theme too</h2><br>
+<img src="screenshots/darkmain.png">
+<br>
 <h2>Play games</h2><br>
 <img src="screenshots/play.png">
 <br>
 <h2>Create your own profile</h2><br>
 <img src="screenshots/profile.png"><br>
 <h2>
-  Go ahead and 
-   <a href="https://blueblogs.herokuapp.com/createaccount" target="_blank"> Sign Up </a> 
-   ( you don't have to provide a real email address ) 
+  Go ahead and
+   <a href="https://blueblogs.herokuapp.com/createaccount" target="_blank"> Sign Up </a>
+   ( you don't have to provide a real email address )
 </h2>
