@@ -1,5 +1,27 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 
+#loader {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  position: absolute;
+  top: 35%;
+  left: 45%;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .fa {
   background: white;
   color: black;
@@ -31,7 +53,7 @@ body[data-theme="light"] {
   font-family: 'Montserrat', sans-serif;
 }
 
-body[data-theme="dark"]  {
+body[data-theme="dark"] {
   background-color: #1e1e1e;
   color: #eaeaea;
   margin: 0;
@@ -55,20 +77,20 @@ body[data-theme="light"] #header a:hover {
   color: #3333;
 }
 
-body[data-theme="dark"]  #header {
+body[data-theme="dark"] #header {
   background-color: #151515;
   height: 150px;
   line-height: 150px;
 }
 
-body[data-theme="dark"]  #header a {
+body[data-theme="dark"] #header a {
   color: white;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
 
-body[data-theme="dark"]  #header a:hover {
+body[data-theme="dark"] #header a:hover {
   color: #f6a623;
 }
 
@@ -113,7 +135,7 @@ body[data-theme="light"] #logo:hover {
   transition: 0.5s;
 }
 
-body[data-theme="dark"]  #logo {
+body[data-theme="dark"] #logo {
   width: 40px;
   height: 40px;
   padding: 10px;
@@ -125,7 +147,7 @@ body[data-theme="dark"]  #logo {
   transition: 0.5s;
 }
 
-body[data-theme="dark"]  #logo:hover {
+body[data-theme="dark"] #logo:hover {
   background-color: #111111;
   box-shadow: 2px 5px 8px #1a1a1a;
   transition: 0.5s;
@@ -155,7 +177,7 @@ body[data-theme="light"] .post:hover {
   transition: 0.5s;
 }
 
-body[data-theme="dark"]  .post:hover {
+body[data-theme="dark"] .post:hover {
   max-width: 900px;
   margin-top: 30px;
   margin-bottom: 30px;
@@ -167,7 +189,6 @@ body[data-theme="dark"]  .post:hover {
   border-radius: 15px;
   transition: 0.5s;
 }
-
 
 body[data-theme="light"] pre {
   font-family: 'Montserrat', sans-serif;
@@ -181,7 +202,7 @@ body[data-theme="light"] pre {
   color: #555;
 }
 
-body[data-theme="dark"]  pre {
+body[data-theme="dark"] pre {
   font-family: 'Montserrat', sans-serif;
   white-space: pre-wrap;
   word-wrap: break-word;
@@ -325,35 +346,35 @@ body[data-theme="dark"] .error-author span {
   letter-spacing: 0.1em;
 }
 
-body[data-theme="light"] h1{
+body[data-theme="light"] h1 {
   color: #333;
 }
 
-body[data-theme="light"] h2{
+body[data-theme="light"] h2 {
   color: #333;
 }
 
-body[data-theme="light"] h3{
+body[data-theme="light"] h3 {
   color: #333;
 }
 
-body[data-theme="light"] h4{
+body[data-theme="light"] h4 {
   color: #333;
 }
 
-body[data-theme="dark"] h1{
+body[data-theme="dark"] h1 {
   color: #fff;
 }
 
-body[data-theme="dark"] h2{
+body[data-theme="dark"] h2 {
   color: #fff;
 }
 
-body[data-theme="dark"] h3{
+body[data-theme="dark"] h3 {
   color: #fff;
 }
 
-body[data-theme="dark"] h4{
+body[data-theme="dark"] h4 {
   color: #fff;
 }
 
