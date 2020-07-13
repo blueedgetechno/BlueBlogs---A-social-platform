@@ -32,7 +32,7 @@
           <i class="fa fa-envelope"></i>
           <input required type="text" name="email" value="" placeholder="Email">
           <br><br>
-          <i class="fa fa-key"></i>
+          <i class="fa fa-key" title="Generate Password" onclick="generatepass()"></i>
           <input required type="password" name="password" oninput="ind()" value="" placeholder="Password">
           <i id="showpass" class="fa fa-eye" onclick="showpass()"></i>
           <div id="indicator">
@@ -92,15 +92,50 @@
             function showpass() {
               eye.classList.toggle('fa-eye');
               eye.classList.toggle('fa-eye-slash');
-              if(passw.type=="password"){
+              if (passw.type == "password") {
                 passw.type = "text";
-              }else{
+              } else {
                 passw.type = "password";
               }
             }
+
+            function generatepass() {
+              var a = []
+              a.push(String.fromCharCode(Math.floor(Math.random() * 26) + 65))
+              a.push(String.fromCharCode(Math.floor(Math.random() * 26) + 65))
+              a.push(String.fromCharCode(Math.floor(Math.random() * 26) + 97))
+              a.push(String.fromCharCode(Math.floor(Math.random() * 26) + 97))
+              a.push(String.fromCharCode(Math.floor(Math.random() * 10) + 48))
+              a.push(String.fromCharCode(Math.floor(Math.random() * 10) + 48))
+              a.push(String.fromCharCode(Math.floor(Math.random() * 15) + 33))
+              a.push(String.fromCharCode(Math.floor(Math.random() * 15) + 33))
+              a.push(String.fromCharCode(Math.floor(Math.random() * 26) + 65))
+              a.push(String.fromCharCode(Math.floor(Math.random() * 26) + 65))
+              a.push(String.fromCharCode(Math.floor(Math.random() * 26) + 97))
+              a.push(String.fromCharCode(Math.floor(Math.random() * 26) + 97))
+              a.push(String.fromCharCode(Math.floor(Math.random() * 10) + 48))
+              a.push(String.fromCharCode(Math.floor(Math.random() * 10) + 48))
+              a.push(String.fromCharCode(Math.floor(Math.random() * 15) + 33))
+              a.push(String.fromCharCode(Math.floor(Math.random() * 15) + 33))
+              a=shuffle(a);
+              passw.value = a.join("")
+            }
+
+            function shuffle(a) {
+              var ctr = a.length,
+                temp, index;
+              while (ctr > 0) {
+                index = Math.floor(Math.random() * ctr);
+                ctr--;
+                temp = a[ctr];
+                a[ctr] = a[index];
+                a[index] = temp;
+              }
+              return a;
+            }
           </script>
           <br><br>
-          <button type="submit" name="submit">Sign up</button>
+          <!-- <button type="submit" name="submit">Sign up</button> -->
         </form>
       </div>
       <div class="formfooter">

@@ -236,6 +236,7 @@ function draw() {
 }
 
 function keyPressed() {
+  newd = [0,0]
   if (keyCode == UP_ARROW) {
     newd = [0, -1]
   } else if (keyCode == DOWN_ARROW) {
