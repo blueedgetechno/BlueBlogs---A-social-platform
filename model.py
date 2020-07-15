@@ -1,6 +1,7 @@
 from manage import db
 from datetime import datetime
 
+# TODO: Seperate js file for password configurations
 
 class Users(db.Model):
     name = db.Column(db.String(50), unique=True,
