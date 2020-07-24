@@ -88,6 +88,18 @@ def invalid(email):
     return False
 
 
+def invaliduser(username):
+    if len(username)<1:
+        return True
+
+    for x in username:
+        if 64<ord(x)<91 or 96<ord(x)<123:
+            continue
+        else:
+            return True
+    return False
+
+
 @app.errorhandler(404)
 def page_not_found(e):
     return redirect(url_for("error"))
@@ -286,7 +298,10 @@ def createaccount():
                 flash("Email address already exist")
                 return render_template('createaccount.html')
             if invalid(email):
-                flash("Email address doesn't exist")
+                flash("Invalid email address")
+                return render_template('createaccount.html')
+            if invaliduser(username):
+                flash("Only Letters are allowed in User name")
                 return render_template('createaccount.html')
 
             password = hashit(request.form['password'])
