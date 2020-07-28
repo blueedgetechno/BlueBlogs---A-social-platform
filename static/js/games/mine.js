@@ -78,18 +78,19 @@ class Box {
         fill(162, 209, 73)
       }
       rect(this.x * z, this.y * z, z, z)
+      var dsc = 1
       if(isvalid(this.x+1,this.y)){
         if(boxes[this.x+1][this.y].s){
           stroke(136,176,59)
           strokeWeight(4)
-          line((this.x+1)*z,this.y*z,(this.x+1)*z,(this.y+1)*z)
+          line((this.x+1)*z,this.y*z+dsc,(this.x+1)*z,(this.y+1)*z-dsc)
         }
       }
       if(isvalid(this.x-1,this.y)){
         if(boxes[this.x-1][this.y].s){
           stroke(136,176,59)
           strokeWeight(2)
-          line((this.x)*z,this.y*z,(this.x)*z,(this.y+1)*z)
+          line((this.x)*z,this.y*z+dsc,(this.x)*z,(this.y+1)*z-dsc)
         }
 
       }
@@ -97,7 +98,7 @@ class Box {
         if(boxes[this.x][this.y-1].s){
           stroke(136,176,59)
           strokeWeight(2)
-          line(this.x*z,this.y*z,(this.x+1)*z,this.y*z)
+          line(this.x*z+dsc,this.y*z,(this.x+1)*z-dsc,this.y*z)
         }
 
       }
@@ -105,7 +106,7 @@ class Box {
         if(boxes[this.x][this.y+1].s){
           stroke(136,176,59)
           strokeWeight(4)
-          line(this.x*z,(this.y+1)*z,(this.x+1)*z,(this.y+1)*z)
+          line(this.x*z+dsc,(this.y+1)*z,(this.x+1)*z-dsc,(this.y+1)*z)
         }
       }
 
@@ -213,10 +214,10 @@ function go(x, y) {
   }
 }
 
-var won = 3
+var won = 0
 
 function draw() {
-  background(170, 215, 81)
+  background(0,100,0)
   var tot = 0
   for (var i = 0; i < r; i++) {
     for (var j = 0; j < c; j++) {
