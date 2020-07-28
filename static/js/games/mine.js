@@ -217,7 +217,7 @@ function go(x, y) {
 var won = 0
 
 function draw() {
-  background(0,100,0)
+  background(170, 215, 81)
   var tot = 0
   for (var i = 0; i < r; i++) {
     for (var j = 0; j < c; j++) {
